@@ -28,8 +28,28 @@
       "dest": "/frontend/$1"
     },
     {
-      "src": "/(dashboard|login|register|jobs|events|admin)",
-      "dest": "app/main.py"
+      "src": "/dashboard",
+      "dest": "/frontend/dashboard.html"
+    },
+    {
+      "src": "/login",
+      "dest": "/frontend/login.html"
+    },
+    {
+      "src": "/register",
+      "dest": "/frontend/register.html"
+    },
+    {
+      "src": "/jobs",
+      "dest": "/frontend/jobs.html"
+    },
+    {
+      "src": "/events",
+      "dest": "/frontend/events.html"
+    },
+    {
+      "src": "/admin",
+      "dest": "/frontend/admin.html"
     },
     {
       "src": "/",

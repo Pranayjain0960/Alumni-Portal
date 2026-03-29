@@ -41,15 +41,20 @@ app.include_router(resume.router)
 frontend_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "frontend")
 static_root = os.path.join(os.path.dirname(os.path.dirname(__file__)), "static")
 profile_pics_dir = os.path.join(static_root, "profile_pics")
-os.makedirs(profile_pics_dir, exist_ok=True)
+try:
+    os.makedirs(profile_pics_dir, exist_ok=True)
+except Exception:
+    pass
 
 # Mount specific folders to avoid conflicts
-app.mount("/static/profile_pics", StaticFiles(directory=profile_pics_dir), name="profile_pics")
+if os.path.exists(profile_pics_dir):
+    app.mount("/static/profile_pics", StaticFiles(directory=profile_pics_dir), name="profile_pics")
 if os.path.exists(frontend_dir):
     app.mount("/static", StaticFiles(directory=frontend_dir), name="static")
 
 # Also keep /uploads for future-proofing
-app.mount("/uploads", StaticFiles(directory=static_root), name="uploads")
+if os.path.exists(static_root):
+    app.mount("/uploads", StaticFiles(directory=static_root), name="uploads")
 
 
 # ==================== FRONTEND PAGE ROUTES ====================
