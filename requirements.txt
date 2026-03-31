@@ -1,10 +1,8 @@
 fastapi
 uvicorn[standard]
 sqlalchemy
-python-jose[cryptography]
-passlib[bcrypt]
+PyJWT
 python-multipart
-pydantic[email-validation]
-bcrypt
+pydantic[email-validator]
 aiofiles
 pg8000
