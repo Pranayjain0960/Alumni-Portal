@@ -3,6 +3,7 @@ uvicorn[standard]
 sqlalchemy
 PyJWT
 python-multipart
-pydantic[email-validator]
+pydantic[email]
+email-validator
 aiofiles
 pg8000
