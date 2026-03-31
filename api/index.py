@@ -1,6 +1,4 @@
-import sys
 import traceback
-
 try:
     from app.main import app
 except Exception as e:
@@ -9,6 +7,6 @@ except Exception as e:
     
     app = FastAPI()
     
-    @app.api_route("/{path:path}", methods=["GET", "POST", "PUT", "DELETE"])
+    @app.api_route("/{path:path}", methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
     def catch_all(path: str):
-        return PlainTextResponse(traceback.format_exc(), status_code=500)
+        return PlainTextResponse("Hello from fallback! Error: " + traceback.format_exc(), status_code=200)
